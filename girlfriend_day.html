@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Girlfriend's Day 💖</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff0f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .card {
+      background: #ffe6f0;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+      width: 90%;
+      max-width: 600px;
+      padding: 30px;
+      text-align: center;
+      position: relative;
+    }
+
+    .card h1 {
+      font-size: 28px;
+      color: #d63384;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      color: #880e4f;
+      font-size: 15px;
+      line-height: 1.7;
+      text-align: left;
+      box-shadow: inset 0 0 10px rgba(255, 182, 193, 0.3);
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .like-button {
+      margin-top: 20px;
+      background: #ff69b4;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+      transition: transform 0.2s ease;
+    }
+
+    .like-button:active {
+      transform: scale(1.1);
+    }
+
+    .like-count {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #d63384;
+    }
+
+    /* Optional floating hearts */
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: floatUp 6s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(1) rotate(45deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.5) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>💖 Happy Girlfriend's Day 💖</h1>
+    <div class="message">
+      <p>
+        HAPPY GIRLFRIEND'S DAY MAMAS. I LOVE YOU SOO MUCH. I apologize for this cheap ahh gift cus mai broke ahh cant afford irl gifts ;-;.<br><br>
+        SOOOO I LOVE YIU SO MUCH I LOVE THE WAY YIU TREAT. I WANNA TURN THIS GIRLFRIEND'S DAY INTO WIFE'S DAY. I WANNA MARYY YIU NO JOKE.<br><br>
+        AND I LOVE THE ONE HOUR WE SPEND EVERYDAY. I LOEV HOW YIUR SO SUPPORTIVE AND YIUR SOOOOOOOO PYARII BRO LIKE HOW- CAN U BE SO CUTU OMG.<br><br>
+        YIUR THE LIGHT IN MY DARK LIFE. YIUR THE BEST AND AND I KNOW THIS SHIT AINT ENOUGH AS A GIFT BUT I LOBH YIU SO MUCH. MWAHHHH BABY.<br><br>
+        I LOVE WHEN YIU BABY ME. LOVE WHEN YIU YAP. LOVE WHEN YIU SING. LOVE WHEN YIU POUT. LOVE WHEN YIU LIKE VIBE TO SONGS- SOOO CUTU OMG-<br><br>
+        I LOVE YIUR SMILE SO MUCH. I DONT WANT YIU TO HIDE IT EVER. ITS SO CUTU I GET FLATTERED AND I REALLY LOVE YIU. I LOVES YIU ALOT.<br><br>
+        IN THE END IM GONNA SAY IMM GONNA MARRY YIU WIFEY AND CONVERT THIS INTO WIFEY DAY MWAHHHHHH CUTU SO MUCH LOVEEE TO YIUUUUU.I LAV YIU VIVI
+      </p>
+    </div>
+
+    <button class="like-button" onclick="addLike()">❤️ Like</button>
+    <div class="like-count" id="likeCount">0 Likes</div>
+  </div>
+
+  <!-- Floating hearts background -->
+  <div class="hearts" id="hearts"></div>
+
+  <script>
+    let likes = 0;
+    function addLike() {
+      likes++;
+      document.getElementById("likeCount").innerText = likes + " Likes";
+    }
+
+    // Floating heart animation
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      document.getElementById("hearts").appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 600);
+  </script>
+
+</body>
+</html>
